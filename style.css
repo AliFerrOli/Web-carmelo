@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Jost', sans-serif;
+}
+header{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+header .logo{
+    width: 112px;
+}
+
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 822px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+}
+
+
+.menu ul{
+    display: flex;
+    list-style: none;
+}
+
+.menu ul li{
+    margin-right: 30px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: #220404;
+    font-size: 21px;
+}
+
+.menu .carrinho{
+    width: 30px;
+}
+
+.menu ul li a:hover{
+    color: #FFB1B1;
+}
+
+
+
+
+/*area do banner*/
+
+.banner{
+    background-color:#220404;
+    width: 100wh;
+    height: 508px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerArea{
+    width: 822px;
+    height: 100%;
+    background-color: #FFB1B1;
+}
+
+
+
+
+/*parte principal*/
+
+main{
+    background-image: linear-gradient(180deg, #220404 -4.74%, #F4EDE7 2.29%, rgba(244, 237, 231, 0) 100%);
+}
+
+
+
+
+/*A area de bem vindo*/
+.bemvindoArea{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bemvindoAreaInformacoes{
+    display: flex;
+    width: 822px;
+    margin-top: 100px;
+    justify-content:space-between;
+}
+
+.bemvindoArea h2{
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    margin-top: 16px;
+}
+
+.bemvindoAreaInformacoesEsquerda{
+    width: 50%;
+}
+
+.bemvindoArea img{
+    width: 329px;
+}
+
+.bemvindoArea p{
+    font-size: 16px;
+}
+
+
+
+
+/*Area dos itens populares*/
+
+.itensPopularesArea{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.itensPopularesArea h2{
+    margin-bottom: 50px;
+    font-size: 32px;
+}
+
+.itensPopularesBlocos{
+    margin-bottom: 43px;
+    border-radius: 10px;
+    padding: 36px;
+    display: flex;
+    justify-content: space-between;
+    width: 821px;
+    background: #E5DAD0;
+    box-shadow: 0px 4.06162px 4.06162px rgba(0, 0, 0, 0.25);
+}
+
+.itensPopularesBlocos img{
+    width: 306px;
+    border-radius: 50px;
+    box-shadow: 0px 4.06162px 4.06162px rgba(0, 0, 0, 0.25);
+}
+
+.popularesTexto{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.itensPopularesBlocos h3{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+
+
+
+
+/*Sobre nos area*/
+
+.sobreNos{
+    background-color: #D0C5BB;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sobreNosArea{
+    background-color: #F4EDE7;
+    width: 821px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sobreNosTexto{
+    width: 472px;
+    text-align: center;
+}
+
+
