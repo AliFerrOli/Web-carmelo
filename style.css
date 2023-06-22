@@ -208,7 +208,7 @@ input{
 
 /*parte principal*/
 
-main{
+.areaPrincipal{
     background-image: linear-gradient(180deg, #220404 -4.74%, #F4EDE7 2.29%, rgba(244, 237, 231, 0) 100%);
 }
 
@@ -444,3 +444,66 @@ footer{
     color: #FFB1B1;
 }
 
+
+
+
+
+
+/*Cardápio*/
+
+.containerConteudo{
+    max-width: 822px;
+    margin: 0 auto;
+}
+
+.containerConteudo div{
+    width: 100%;
+}
+.containerConteudo .cardapioTitulo{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+.containerConteudo .cardapioTitulo h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 400;
+    border-bottom: solid 1px #000;
+    margin-bottom: 50px;
+}
+
+.wrapItens{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.wrapItensImg img{
+    width: 275px;
+    height: 275px;
+    border-radius: 90px;
+}
+
+.wrapItensDesc{
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapItensDesc .preco{
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: 500;
+}
+.wrapItensBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 203px;
+    height: 76px;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
+    background-color: #3A4E48;
+    border-radius: 30px;
+}
