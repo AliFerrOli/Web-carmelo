@@ -446,8 +446,35 @@ footer{
 }
 
 
+/*Selecionar bebida ou comida*/
+.selCardapioArea{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85vh;
+    width: 50%;
+}
 
-/*Cardápio*/
+.selCardapioOpcao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 90px;
+    background-color: #E5DAD0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.selCardapioOpcao:hover{
+    background-color: #D0C5BB;
+    transition: 0.5s;
+}
+
+
+
+/*Cardápio Comida*/
 
 .menu-item {
     display: flex;
@@ -525,12 +552,13 @@ section .areaCadastroLogin .areaCadastroCaixa{
     background: #BEB0A3;
     box-shadow: 0px 4px 4px 0px #7E6E6E;
     width: 683px;
-    height: 386px;
+    margin-bottom: 100px;
 }
 
 section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro .admCadastros{
@@ -583,6 +611,107 @@ section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro .cadProdutoImg{
 }
 
 .btnCadAdm{
+    margin-top: 22px;
+    border-radius: 20px;
+    background: #3A4E48;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+
+}
+
+
+
+/*adm ALTERAR ENDEREÇO DA LOJA*/
+
+
+section .areaAltEnd{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section .areaAltEnd p{
+    margin-top: 70px;
+    color: #471414;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+section .areaAltEnd .areaAltEndCaixa{
+    margin-top: 30px;
+    padding: 50px;
+    border-radius: 10px;
+    background: #BEB0A3;
+    box-shadow: 0px 4px 4px 0px #7E6E6E;
+    width: 683px;
+    margin-bottom: 100px;
+}
+
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja{
+    display: flex;
+    flex-direction: column;
+}
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja label{
+    margin-bottom: 10px;
+    color: #471414;
+    font-size: 16px;
+    font-weight: 500;
+}
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja input{
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    height: 37px;
+    border-radius: 50px;
+    border: none;
+}
+
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja textarea{
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 253px;
+    height: 85px;
+    border: none;
+    border-radius: 20px;
+    background: #FFF;
+}
+
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja .wrapper{
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    width: 253px;
+}
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja .wrapper .wrapperInputLonger{
+    width: 163px;
+}
+
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja .wrapper .wrapperInput{
+    width: 71px;
+}
+
+section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .cadlojaImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/visiteNos.png);
+    background-position: center;
+    background-size: cover;
+    width: 275px;
+    height: 217px;
+    border-radius: 30px;
+}
+
+.btnAltAdm{
     margin-top: 22px;
     border-radius: 20px;
     background: #3A4E48;
