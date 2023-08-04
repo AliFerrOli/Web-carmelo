@@ -8,14 +8,14 @@
     <title>Tela de Login - Dev Envolvente</title>
 </head>
 <body>
-    <form class="login">
+    <form class="login" action="validarLogin.php" method="post">
         <h2>Login</h2>
         <div class="box-user">
-            <input type="text" name="username" required>
+            <input type="text" name="email" required>
             <label>Email</label>
         </div>
         <div class="box-user">
-            <input type="password" name="password" required>
+            <input type="password" name="senha" required>
             <label>Senha</label>
         </div>
         <div>

@@ -1,53 +1,6 @@
 <?php
     include_once('config/conexao.php');
 
-    /* if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Verificar se os campos obrigatórios foram preenchidos
-        if (
-            isset($_POST['nome']) &&
-            isset($_POST['cpf']) &&
-            isset($_POST['endereco']) &&
-            isset($_POST['telefone']) &&
-            isset($_POST['senha']) &&
-            isset($_POST['email'])
-        ) {
-            $nome = $_POST['nome'];
-            $cpf = $_POST['cpf'];
-            $endereco = $_POST['endereco'];
-            $telefone = $_POST['telefone'];
-            $senha = $_POST['senha'];
-            $email = $_POST['email'];
-
-            // Criar a consulta SQL para inserção de dados na tabela cliente
-            $sql_cliente = "INSERT INTO cliente (nome_completo, cpf, endereco, telefone) VALUES ('$nome', '$cpf', '$endereco', '$telefone')";
-
-            // Executar a consulta na tabela cliente
-            if ($conn->query($sql_cliente) === TRUE) {
-                // Inserção bem-sucedida na tabela cliente
-
-                // Recuperar o ID do cliente inserido
-                $cliente_id = $conn->insert_id;
-
-                // Criar a consulta SQL para inserção de dados na tabela login
-                $sql_login = "INSERT INTO login (id_cliente, email, senha, usertype) VALUES ('$cliente_id', '$email', '$senha', 'user')";
-
-                // Executar a consulta na tabela login
-                if ($conn->query($sql_login) === TRUE) {
-                    // Inserção bem-sucedida na tabela login
-                    echo "Cadastro realizado com sucesso!";
-                } else {
-                    // Erro ao inserir os dados na tabela login
-                    echo "Erro ao cadastrar na tabela login: " . $conn->error;
-                }
-            } else {
-                // Erro ao inserir os dados na tabela cliente
-                echo "Erro ao cadastrar na tabela cliente: " . $conn->error;
-            }
-        } else {
-            // Campos obrigatórios não preenchidos
-            echo "Por favor, preencha todos os campos obrigatórios.";
-        }
-    } */
 
     if(isset($_POST['submit']))
     {
@@ -61,12 +14,35 @@
         $sql_cliente = "INSERT INTO cliente(nome_completo, cpf, endereco, telefone) 
         VALUES ('$nome', '$cpf', '$endereco', '$telefone')";
 
-        $result_client = mysqli_query($conexao, $sql_cliente);
+        $result_cliente = mysqli_query($conexao, $sql_cliente);
 
-        $sql_login = "INSERT INTO login(email, senha) 
+        if ($result_cliente) {
+            // Obtém o ID do cliente recém-cadastrado
+            $id_cliente = mysqli_insert_id($conexao);
+    
+            // Insere o novo login associado ao ID do cliente
+            $sql_login = "INSERT INTO login(id_cliente, email, senha) 
+                          VALUES ('$id_cliente', '$email', '$senha')";
+    
+            $result_login = mysqli_query($conexao, $sql_login);
+    
+            if ($result_login) {
+                // Inserções bem-sucedidas
+                echo "Dados cadastrados com sucesso.";
+            } else {
+                // Erro ao inserir dados
+                echo "Erro ao cadastrar os dados de login.";
+            }
+        } else {
+            // Erro ao inserir dados
+            echo "Erro ao cadastrar os dados de cliente.";
+        }
+
+       /*  $sql_login = "INSERT INTO login(email, senha) 
         VALUES ('$email', '$senha')";
 
-        $result = mysqli_query($conexao, $sql_login);
+        $result_login = mysqli_query($conexao, $sql_login);
+        echo mysqli_insert_id($conexao);
 
         if ($result_cliente && $result_login) {
             // Inserções bem-sucedidas
@@ -74,7 +50,7 @@
         } else {
             // Erro ao inserir dados
             echo "Erro ao cadastrar os dados.";
-        }
+        } */
     };
 
     
@@ -96,7 +72,7 @@
     <title>Tela de Cadastrar</title>
 </head>
 <body>
-    <form class="login" action="cadastro.php" method="post">
+    <form class="login" action="" method="post">
         <h2>Cadastrar</h2>
         <div class="box-user">
             <input type="text" name="nome" required>

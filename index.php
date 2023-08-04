@@ -17,8 +17,8 @@
           <nav>
               <ul>
                   <li><a href="index.php">HOME</a></li>
-                  <li><a href="#sobreNos">SOBRE NÓS</a></li>
-                  <li><a href="cardapio.php">CARDÁPIO</a></li>
+                  <li><a href="sobreNos.php">SOBRE NÓS</a></li>
+                  <li><a href="selecionarCardapio.php">CARDÁPIO</a></li>
                   <li><a href="login.php">LOGIN</a></li>
                   <li><a href="cadastro.php">CADASTRAR</a></li>
                   <li><a href=""><svg class="carrinho" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +28,9 @@
           </nav>
       </div>
   </header>
+
+  <!-- C:\xampp\php\php.exe -->
+
 
   <section class="banner">
     <div class="escurecer">
@@ -140,7 +143,7 @@
         <p>Somos uma pequena cafeteria localizada no coração da cidade, comprometidos em oferecer aos nossos clientes os melhores produtos de café da manhã, feitos com ingredientes frescos e de alta qualidade. </p>
       </div>
       <a href="" class="sobreNosBotao">
-        <h3>Veja nosso cardápio!</h3>
+        <h3>Saiba mais!</h3>
       </a>
     </div>
   </section>
