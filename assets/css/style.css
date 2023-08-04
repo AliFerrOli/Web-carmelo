@@ -254,7 +254,7 @@ main{
 /*Area dos itens populares*/
 
 .itensPopularesArea{
-    margin-top: 100px;
+    margin-top: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -264,6 +264,8 @@ main{
 .itensPopularesArea h2{
     margin-bottom: 50px;
     font-size: 32px;
+    text-transform: uppercase;
+    color: #220404;
 }
 
 .itensPopularesBlocos{
@@ -306,7 +308,7 @@ main{
 /*Sobre nos area*/
 
 .sobreNos{
-    background-color: #D0C5BB;
+    background-color: #9b6262;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -445,8 +447,86 @@ footer{
     color: #FFB1B1;
 }
 
+/*Tela Sobre nós*/
+
+.sobreNosBannerArea{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/sobrenosbanner.png);
+    background-size: cover;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.sobreNosCentro{
+    position: relative;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.726);
+    width: 820px;
+    border-radius: 10px;
+
+}
+
+.sobreNosCentro img{
+    width: 470px;
+    position: absolute;
+    top: -100px;
+    left: 58%;
+    
+}
+
+.sobreNosCentro h3{
+    color: #471414;
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.sobreNosCentro p{
+    margin-bottom: 40px;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.equipeArea{
+    width: 100%;
+    background: linear-gradient(180deg, #471414 0%, #733434 48.44%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.equipeAreaCentro{
+    width: 820px;
+}
+
+.equipeAreaCentro P{
+    color: #BAADA8;
+    font-size: 45px;
+    font-weight: 400;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    background: #000;
+    box-shadow: -2px 6px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 255px;
+    height: 103px;
+}
 
 /*Selecionar bebida ou comida*/
+.areaEstilizada{
+    background-image: linear-gradient(180deg, #220404 -4.74%, #F4EDE7 2.29%, rgba(244, 237, 231, 0) 100%);
+}
+
 .selCardapioArea{
     margin: 0 auto;
     display: flex;
@@ -454,6 +534,7 @@ footer{
     align-items: center;
     height: 85vh;
     width: 50%;
+    gap: 50px;
 }
 
 .selCardapioOpcao{
@@ -476,30 +557,64 @@ footer{
 
 /*Cardápio Comida*/
 
+.cardapio{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.cardapioWrap{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+.cardapioArea{
+    width: 822px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardapioArea h3{
+    padding-bottom: 15px;
+    margin-top: 100px;
+    font-size: 35px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+}
+
 .menu-item {
+    width: 100%;
+    margin-top: 50px;
+    gap: 45px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .menu-item img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 10px;
+    width: 275px;
+    height: 275px;
+    border-radius: 90px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
 }
 
 .menu-item-details {
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 40px;
 }
 
-.menu-item h3 {
+.menu-item h4 {
+    text-transform: uppercase;
     margin: 0;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: 400;
 }
 
 .menu-item p {
@@ -507,17 +622,26 @@ footer{
     font-size: 16px;
 }
 
-.menu-item span {
+.cardapioPreco{
+    font-size: 25px;
     font-weight: bold;
 }
 
 .add-to-cart {
-    background-color: #3A4E48;
-    color: #ffffff;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    width: 203px;
+    height: 76px;
     border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 14px;
+    border-radius: 30px;
+    background: #3A4E48;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.add-to-cart:hover{
+    background: #1c2422;
     cursor: pointer;
 }
 
@@ -525,199 +649,12 @@ footer{
 
 
 
-/*Sessão do adm, CADASTRAR PRODUTO*/
-
-.areaEstilizada{
-    background-image: linear-gradient(180deg, #220404 -4.74%, #F4EDE7 2.29%, rgba(244, 237, 231, 0) 100%);
-}
-
-section .areaCadastroLogin{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-section .areaCadastroLogin p{
-    margin-top: 70px;
-    color: #471414;
-    font-size: 32px;
-    font-weight: 500;
-}
-
-section .areaCadastroLogin .areaCadastroCaixa{
-    margin-top: 30px;
-    padding: 50px;
-    border-radius: 10px;
-    background: #BEB0A3;
-    box-shadow: 0px 4px 4px 0px #7E6E6E;
-    width: 683px;
-    margin-bottom: 100px;
-}
-
-section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro .admCadastros{
-    display: flex;
-    flex-direction: column;
-}
-section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro .admCadastros label{
-    margin-bottom: 10px;
-    color: #471414;
-    font-size: 16px;
-    font-weight: 500;
-}
-section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro .admCadastros input{
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 100%;
-    height: 37px;
-    border-radius: 50px;
-    border: none;
-}
-
-section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro .admCadastros textarea{
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 253px;
-    height: 85px;
-    border: none;
-    border-radius: 20px;
-    background: #FFF;
-}
-
-section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro .admCadastros .wrapper{
-    display: flex;
-    align-items: center;
-    gap: 19px;
-    width: 253px;
-}
-
-section .areaCadastroLogin .areaCadastroCaixa .wrapCadastro .cadProdutoImg{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url(../images/cafepreto.jpg);
-    background-position: center;
-    background-size: cover;
-    background-color: red;
-    width: 275px;
-    height: 275px;
-    border-radius: 90px;
-}
-
-.btnCadAdm{
-    margin-top: 22px;
-    border-radius: 20px;
-    background: #3A4E48;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #FFF;
-    font-size: 16px;
-    font-weight: 500;
-
-}
 
 
 
-/*adm ALTERAR ENDEREÇO DA LOJA*/
 
 
-section .areaAltEnd{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-section .areaAltEnd p{
-    margin-top: 70px;
-    color: #471414;
-    font-size: 32px;
-    font-weight: 500;
-}
 
-section .areaAltEnd .areaAltEndCaixa{
-    margin-top: 30px;
-    padding: 50px;
-    border-radius: 10px;
-    background: #BEB0A3;
-    box-shadow: 0px 4px 4px 0px #7E6E6E;
-    width: 683px;
-    margin-bottom: 100px;
-}
 
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja{
-    display: flex;
-    flex-direction: column;
-}
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja label{
-    margin-bottom: 10px;
-    color: #471414;
-    font-size: 16px;
-    font-weight: 500;
-}
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja input{
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 100%;
-    height: 37px;
-    border-radius: 50px;
-    border: none;
-}
-
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja textarea{
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 253px;
-    height: 85px;
-    border: none;
-    border-radius: 20px;
-    background: #FFF;
-}
-
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja .wrapper{
-    display: flex;
-    align-items: center;
-    gap: 19px;
-    width: 253px;
-}
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja .wrapper .wrapperInputLonger{
-    width: 163px;
-}
-
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .endLoja .wrapper .wrapperInput{
-    width: 71px;
-}
-
-section .areaAltEnd .areaAltEndCaixa .wrapAltEnd .cadlojaImg{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url(../images/visiteNos.png);
-    background-position: center;
-    background-size: cover;
-    width: 275px;
-    height: 217px;
-    border-radius: 30px;
-}
-
-.btnAltAdm{
-    margin-top: 22px;
-    border-radius: 20px;
-    background: #3A4E48;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #FFF;
-    font-size: 16px;
-    font-weight: 500;
-
-}
