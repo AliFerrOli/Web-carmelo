@@ -17,8 +17,8 @@
           <nav>
               <ul>
                   <li><a href="index.php">HOME</a></li>
-                  <li><a href="sobreNos,php">SOBRE NÓS</a></li>
-                  <li><a href="cardapio.php">CARDÁPIO</a></li>
+                  <li><a href="sobreNos.php">SOBRE NÓS</a></li>
+                  <li><a href="selecionarCardapio.php">CARDÁPIO</a></li>
                   <li><a href="login.php">LOGIN</a></li>
                   <li><a href="cadastro.php">CADASTRAR</a></li>
                   <li><a href=""><svg class="carrinho" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@
               </ul>
           </nav>
       </div>
-  </header>
+</header>
     
 
   <section class="sobreNosBannerArea">
@@ -41,12 +41,60 @@
     </div>
   </section>
   <section class="equipeArea">
-    <div class="equipeAreaCentro">  
+    <div class="equipeAreaCentro"> 
+        <p>EQUIPE</p> 
         <div class="equipeAreaMembros">
-            <p>EQUIPE</p>
+            <div class="equipeMembro">
+                <img src="assets/images/funcionario.jpeg" alt="">
+                <h5>Joe</h5>
+            </div>
+            <div class="equipeMembro">
+            <img src="assets/images/funcionaria.jpeg" alt="">
+                <h5>Joana</h5>
+            </div>
+            <div class="equipeMembro">
+            <img src="assets/images/funcionario.jpeg" alt="">
+                <h5>Joe Gêmeo</h5>
+            </div>
         </div>
     </div>
   </section>
+  <section class="contateNos">
+    <div class="contateNosArea">
+        <h4>Contate-nos</h4>
+        <div class="contateNosItens">
+            <div class="contatoItem">
+                <a href=""><img src="assets/images/insta.png" alt=""></a>
+            </div>
+            <div class="contatoItem">
+                <a href=""><img src="assets/images/whats.png" alt=""></a>
+            </div>
+            <div class="contatoItem">
+                <a href=""><img src="assets/images/twitter.png" alt=""></a>
+            </div>
+            <div class="contatoItem">
+                <a href=""><img src="assets/images/face.png" alt=""></a>
+            </div>
+
+        </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footerArea">
+      <h3>Contate-nos</h3>
+      <div class="footerInformacoes">
+        <div class="footerContatos">
+          <a href="">45 00000-0000</a>
+          <a href="">email@email.com</a>
+          <a href="">@insta_insta</a>
+          <a href="">Gerenciamento</a>
+        </div>
+        <div class="footerDireitos">
+          <h4>Todos os direitos reservados</h4>
+        </div>
+      </div>
+    </div>
+  </footer>
 
     
 </body>
