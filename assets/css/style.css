@@ -39,8 +39,10 @@ header .logo{
 }
 
 
+
 .menu ul{
     display: flex;
+    align-items: center;
     list-style: none;
 }
 
@@ -59,9 +61,25 @@ header .logo{
 }
 
 .menu ul li a:hover{
-    color: #FFB1B1;
+   color: #FFB1B1; 
 }
 
+.clienteLogado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 211px;
+    height: 41px;
+    border-radius: 50px;
+    background: #EEB0B0;
+    box-shadow: 0px 4px 4px 0px #BAADA8;
+}
+
+.clienteLogado:hover{
+    background: #8f5d5d;
+    color: #FFB1B1;
+    transition: 0.5s;
+}
 
 
 
@@ -98,6 +116,7 @@ header .logo{
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
 
 }
 .navegator{
@@ -143,15 +162,36 @@ header .logo{
     color: #fff;
 }
 
+.arrow-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 300px; /* Ajuste o tamanho conforme necessário */
+  margin: 0 auto;
+  margin-top: 20px;
+}
 
-#slide1:checked ~ .s1{
-    margin-left: 0;
+.arrow {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
-#slide2:checked ~ .s1{
-    margin-left: -20%;
+
+.left-arrow {
+  transform: rotate(180deg); /* Gira a seta para a esquerda */
 }
-#slide3:checked ~ .s1{
-    margin-left: -40%;
+
+
+.arrows{
+    z-index: 90;
+    width: 821px;
+    margin-top: 28%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .slideAreaSlide1{
@@ -520,6 +560,71 @@ footer{
     box-shadow: -2px 6px 4px 0px rgba(0, 0, 0, 0.25);
     width: 255px;
     height: 103px;
+    margin-bottom: 60px;
+}
+
+.equipeAreaMembros{
+    width: 821px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.equipeMembro{
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 356px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #D0C5BB 0%, #E5DAD0 100%);
+
+}
+
+.equipeMembro img{
+    width: 140px;
+    border-radius: 50%;
+    margin-bottom: 70px;
+}
+
+.equipeMembro h5{
+    text-align: center;
+    color: #000;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.contateNos{
+    background: #F4EDE7;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contateNosArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 821px;
+}
+
+.contateNosArea h4{
+    color: #471414;
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.contateNosItens{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 70px;
 }
 
 /*Selecionar bebida ou comida*/

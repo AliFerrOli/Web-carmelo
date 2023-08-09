@@ -8,7 +8,9 @@
   <title>CoffeWay</title>
 </head>
 <body>
-  <header>
+
+  <a href="logout.php">LOGOUT</a>
+  <!-- <header>
     <div class="container header">
       <div class="logo">
           <a href=""><img class="logo" src="assets/images/logo.png"/></a>
@@ -27,13 +29,13 @@
               </ul>
           </nav>
       </div>
-  </header>
+  </header> -->
 
   <!-- C:\xampp\php\php.exe -->
   
 
 
-  <section class="banner">
+ <!--  <section class="banner">
     <div class="escurecer">
       <div class="bannerArea">
         <div class="content">
@@ -203,7 +205,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
 </div>
 </body>

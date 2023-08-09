@@ -62,11 +62,9 @@ body{
 .forget{
     font-size: 12px;
     color: #FFB1B1;
-    float: right;
     text-decoration: none;
 }
 .btn{
-   
     position: relative;
     display: inline-block;
     padding: 12px 20px;
@@ -76,7 +74,6 @@ body{
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 700;
-    margin-top: 20px;
     overflow: hidden;
     border-radius: 10px;
     border: none;
@@ -97,5 +94,12 @@ body{
 
 .box-user-dividido .direita{
     margin-right: 10px;
+}
+
+.backButton{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
