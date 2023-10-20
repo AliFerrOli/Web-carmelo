@@ -11,7 +11,7 @@
         $Endereco = ($_POST['Endereco']);
         $senha = ($_POST['senha']);
 
-        $sql_cliente = "INSERT INTO cliente(nome_completo, cpf, endereco, telefone) 
+        $sql_cliente = "INSERT INTO adm(nome_completo, cpf, endereco, telefone, loja_id) 
         VALUES ('$nome', '$cpf', '$Endereco', '$telefone')";
 
         $result_cliente = mysqli_query($conexao, $sql_cliente);
@@ -28,7 +28,7 @@
     
             if ($result_login) {
                 // Inserções bem-sucedidas
-                header('Location: index.php');
+                echo "Dados cadastrados com sucesso.";
             } else {
                 // Erro ao inserir dados
                 echo "Erro ao cadastrar os dados de login.";
@@ -73,7 +73,7 @@
 </head>
 <body>
     <form class="login" action="" method="post">
-        <h2>Cadastrar</h2>
+        <h2>Cadastrar ADM</h2>
         <div class="box-user">
             <input type="text" name="nome" required>
             <label>Nome Completo</label>
@@ -96,6 +96,12 @@
             <input type="text" name="Endereco" required>
             <label>Endereço</label>
         </div>
+        <select name="select">
+        <option value="valor1">Valor 1</option>
+        <option value="valor2" selected>Valor 2</option>
+        <option value="valor3">Valor 3</option>
+        </select>
+        <label>Loja</label>
         <div class="box-user-dividido">
             <div class="box-user direita">
                 <input type="password" name="senha" required>

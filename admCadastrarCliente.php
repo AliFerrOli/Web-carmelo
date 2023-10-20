@@ -28,7 +28,7 @@
     
             if ($result_login) {
                 // Inserções bem-sucedidas
-                header('Location: index.php');
+                header('Location: admClientes.php');
             } else {
                 // Erro ao inserir dados
                 echo "Erro ao cadastrar os dados de login.";

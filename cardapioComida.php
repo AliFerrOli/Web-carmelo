@@ -46,11 +46,11 @@ session_start();
             <h3>Cardápio</h3>
             <div class="menu-item">
                 <div class="cardapioWrap">
-                    <img src="assets/images/omelete.jpg" alt="Produto 1">
+                    <img src="assets/images/omelete.jpg" alt="Endereco 1">
                     <div class="menu-item-details">
                         <div class="cardapioInfo">
                             <h4>Omelete</h4>
-                            <p>Descrição do Produto 1</p>
+                            <p>Descrição do Endereco 1</p>
                         </div>
 
                         <div class="cardapioPreco">R$ 6,00</div>
@@ -63,11 +63,11 @@ session_start();
 
             <div class="menu-item">
                 <div class="cardapioWrap">
-                    <img src="assets/images/sanduicheVeg.png" alt="Produto 1">
+                    <img src="assets/images/sanduicheVeg.png" alt="Endereco 1">
                     <div class="menu-item-details">
                         <div class="cardapioInfo">
                             <h4>Sanduíche (veg)</h4>
-                            <p>Descrição do Produto 1</p>
+                            <p>Descrição do Endereco 1</p>
                         </div>
 
                         <div class="cardapioPreco">R$ 5,50</div>
@@ -80,11 +80,11 @@ session_start();
 
             <div class="menu-item">
                 <div class="cardapioWrap">
-                    <img src="assets/images/paodequeijo.jpg" alt="Produto 1">
+                    <img src="assets/images/paodequeijo.jpg" alt="Endereco 1">
                     <div class="menu-item-details">
                         <div class="cardapioInfo">
                             <h4>Pão de queijo</h4>
-                            <p>Descrição do Produto 1</p>
+                            <p>Descrição do Endereco 1</p>
                         </div>
 
                         <div class="cardapioPreco">R$ 4,00</div>

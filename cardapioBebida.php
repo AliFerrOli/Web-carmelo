@@ -46,11 +46,11 @@ session_start();
             <h3>Cardápio</h3>
             <div class="menu-item">
                 <div class="cardapioWrap">
-                    <img src="assets/images/cafepreto.jpg" alt="Produto 1">
+                    <img src="assets/images/cafepreto.jpg" alt="Endereco 1">
                     <div class="menu-item-details">
                         <div class="cardapioInfo">
                             <h4>Café preto</h4>
-                            <p>Descrição do Produto 1</p>
+                            <p>Descrição do Endereco 1</p>
                         </div>
 
                         <div class="cardapioPreco">R$ 4,00</div>
@@ -63,11 +63,11 @@ session_start();
 
             <div class="menu-item">
                 <div class="cardapioWrap">
-                    <img src="assets/images/cafecomleite.jpg" alt="Produto 1">
+                    <img src="assets/images/cafecomleite.jpg" alt="Endereco 1">
                     <div class="menu-item-details">
                         <div class="cardapioInfo">
                             <h4>Café com leite</h4>
-                            <p>Descrição do Produto 1</p>
+                            <p>Descrição do Endereco 1</p>
                         </div>
 
                         <div class="cardapioPreco">R$ 4,50</div>
@@ -80,11 +80,11 @@ session_start();
 
             <div class="menu-item">
                 <div class="cardapioWrap">
-                    <img src="assets/images/cafeexpresso.png" alt="Produto 1">
+                    <img src="assets/images/cafeexpresso.png" alt="Endereco 1">
                     <div class="menu-item-details">
                         <div class="cardapioInfo">
                             <h4>Café expresso</h4>
-                            <p>Descrição do Produto 1</p>
+                            <p>Descrição do Endereco 1</p>
                         </div>
 
                         <div class="cardapioPreco">R$ 6,00</div>

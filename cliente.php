@@ -175,7 +175,7 @@
     <div class="sobreNosArea">
       <div class="sobreNosTexto">
         <h2>Sobre Nós</h2>
-        <p>Somos uma pequena cafeteria localizada no coração da cidade, comprometidos em oferecer aos nossos clientes os melhores produtos de café da manhã, feitos com ingredientes frescos e de alta qualidade. </p>
+        <p>Somos uma pequena cafeteria localizada no coração da cidade, comprometidos em oferecer aos nossos clientes os melhores Enderecos de café da manhã, feitos com ingredientes frescos e de alta qualidade. </p>
       </div>
       <a href="" class="sobreNosBotao">
         <h3>Saiba mais!</h3>
