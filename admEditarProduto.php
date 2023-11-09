@@ -5,6 +5,7 @@ include_once('config/conexao.php');
 $idProduto = $_GET['idProduto'];
 
 $sql = "SELECT nome, descricao, preco, imagem_url, tipo FROM produto WHERE id = $idProduto";
+mysqli_set_charset($conexao, "utf8");
 $result = mysqli_query($conexao, $sql);
 
 // Verifique se a consulta retornou algum resultado

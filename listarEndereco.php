@@ -5,7 +5,9 @@ include_once('config/conexao.php');
 
 // Consulta SQL para buscar informações dos Enderecos
 $sql = "SELECT id, cnpj, uf, rua, telefone, email FROM loja";
+mysqli_set_charset($conexao, "utf8");
 $result = mysqli_query($conexao, $sql);
+
 ?>
 
 <!DOCTYPE html>

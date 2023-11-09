@@ -49,14 +49,14 @@ session_start();
                     </svg>
 
                 </a>
-                <p class="tituloCadastro">CLIENTES</p>
+                <p class="tituloCadastro">ADMINISTRADORES</p>
             </div>
             </div>
             
             <div class="menuAdmSimples">
 
-                <a href="admCadastrarCliente.php"><div class="menuAdmCaixa">CADASTRAR CLIENTE</div></a>
-                <a href="listarCliente.php"><div class="menuAdmCaixa">LISTAR CLIENTES</div></a>
+                <a href="cadastrarAdm.php"><div class="menuAdmCaixa">CADASTRAR ADM</div></a>
+                <a href="listarCliente.php"><div class="menuAdmCaixa">LISTAR ADMS</div></a>
 
             </div>
         </div>

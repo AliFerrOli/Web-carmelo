@@ -12,7 +12,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styleAdm.css">
-    <title>CoffeWay - Cadastrar Endereco</title>
+    <title>CoffeWay - Cadastrar Produto</title>
 </head>
 
 <body>
@@ -49,14 +49,14 @@ session_start();
                     </svg>
 
                 </a>
-                <p class="tituloCadastro">EnderecoS</p>
+                <p class="tituloCadastro">PRODUTOS</p>
                 </div>
             </div>
             
             <div class="menuAdmSimples">
 
-                <a href="admCadastrarEndereco.php"><div class="menuAdmCaixa">ADICIONAR NOVO</div></a>
-                <a href="listarEndereco.php"><div class="menuAdmCaixa">LISTAR EnderecoS</div></a>
+                <a href="admCadastrarProduto.php"><div class="menuAdmCaixa">ADICIONAR NOVO</div></a>
+                <a href="listarProduto.php"><div class="menuAdmCaixa">LISTAR ProdutoS</div></a>
 
             </div>
         </div>

@@ -2,6 +2,7 @@
 session_start();
 include_once('../config/conexao.php');
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Recupere os dados enviados pelo formulário
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Atualizar o registro no banco de dados sem alterar a imagem
         $sql = "UPDATE produto SET nome = '$nome', descricao = '$descricao', tipo = '$tipo', preco = '$preco' WHERE id = $idProduto";
     }
-
+    mysqli_set_charset($conexao, "utf8");
     $result = mysqli_query($conexao, $sql);
 
     if ($result) {

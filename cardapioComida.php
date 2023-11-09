@@ -1,6 +1,14 @@
 <?php
 session_start();
+include_once('config/conexao.php');
+
 ?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -44,7 +52,41 @@ session_start();
     <section class="cardapio areaEstilizada">
         <div class="cardapioArea">
             <h3>Cardápio</h3>
-            <div class="menu-item">
+
+            <?php
+            $sqlCarrinho = "SELECT * FROM produto WHERE tipo = 'comida'";
+            mysqli_set_charset($conexao, "utf8");
+            $select_products = mysqli_query($conexao, $sqlCarrinho);
+
+            while ($fecth_product = mysqli_fetch_assoc($select_products)) {
+            ?>
+
+                <form action="adicionarProdutoCarrinho.php" method="post" class="menu-item">
+                    <div class="cardapioWrap">
+                        <img src="assets/images/<?php echo $fecth_product['imagem_url']; ?>" alt="Endereco 1">
+                        <div class="menu-item-details">
+                            <div class="cardapioInfo">
+                                <h4><?php echo $fecth_product['nome']; ?></h4>
+                                <p><?php echo $fecth_product['descricao']; ?></p>
+                            </div>
+
+                            <div class="cardapioPreco">R$ <?php echo $fecth_product['preco']; ?></div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="id_produto" value="<?php echo $fecth_product['id']; ?>">
+                    <input type="hidden" name="nomeProduto" value="<?php echo $fecth_product['nome']; ?>">
+                    <input type="hidden" name="nomePreco" value="<?php echo $fecth_product['preco']; ?>">
+                    <input type="hidden" name="nomeimagem" value="<?php echo $fecth_product['imagem_url']; ?>">
+                    <input type="submit" class="add-to-cart" name="add-to-cart" value="Adicionar ao Carrinho">
+                </form>
+            <?php
+            }
+            ?>
+
+
+
+
+            <!-- <div class="menu-item">
                 <div class="cardapioWrap">
                     <img src="assets/images/omelete.jpg" alt="Endereco 1">
                     <div class="menu-item-details">
@@ -93,7 +135,7 @@ session_start();
 
 
                 <button class="add-to-cart">Adicionar ao Carrinho</button>
-            </div>
+            </div> -->
         </div>
     </section>
 
