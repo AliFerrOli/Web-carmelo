@@ -56,7 +56,7 @@ session_start();
             <div class="menuAdmSimples">
 
                 <a href="cadastrarAdm.php"><div class="menuAdmCaixa">CADASTRAR ADM</div></a>
-                <a href="listarCliente.php"><div class="menuAdmCaixa">LISTAR ADMS</div></a>
+                <a href="listarAdm.php"><div class="menuAdmCaixa">LISTAR ADMS</div></a>
 
             </div>
         </div>

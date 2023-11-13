@@ -25,10 +25,10 @@ if (isset($_POST['acao'])) {
         echo $imagem_url;
         echo $tipo;
 
-        $sql_Endereco = "INSERT INTO Endereco(nome, descricao, preco, imagem_url, tipo) 
+        $sql_Produto = "INSERT INTO Produto(nome, descricao, preco, imagem_url, tipo) 
         VALUES ('$nome', '$descricao', '$preco', '$imagem_url', '$tipo')";
 
 
-        $result_Endereco = mysqli_query($conexao, $sql_Endereco);
+        $result_Produto = mysqli_query($conexao, $sql_Produto);
     }
 }

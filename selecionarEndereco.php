@@ -10,12 +10,12 @@ if (isset($_POST['finPag'])){
     $sqlPagamento = "UPDATE carrinho SET numero_cartao_credito = '$numCartao', situacao = 'Em Andamento' WHERE id_cliente = $id_cliente";
     $resultPagamento = mysqli_query($conexao, $sqlPagamento);
 
-    $sqlPedido = "UPDATE pedido SET situacao = 'feito' WHERE id_cliente = $id_cliente";
-    $resultPedido = mysqli_query($conexao, $sqlPedido);
-
     
 
-    if($resultPagamento && $resultPedido){
+    $sqlDeletPedido = "DELETE FROM pedido WHERE id_cliente = $id_cliente";
+    $resultDeletPedido = mysqli_query($conexao, $sqlDeletPedido);
+
+    if($resultPagamento && $resultDeletPedido){
         header("Location: pedidoConcluido.php");
     }
     

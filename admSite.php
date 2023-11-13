@@ -49,14 +49,53 @@ session_start();
                     </svg>
 
                 </a>
-                <p class="tituloCadastro">SITE</p>
+                <p class="tituloCadastro">ENDERECO</p>
             </div>
             </div>
             
             <div class="menuAdmSimples">
 
-                <a href="#.php"><div class="menuAdmCaixa">DADOS</div></a>
-                <a href="admEndereco.php"><div class="menuAdmCaixa">ENDEREÇO</div></a>
+            <div class="listarEnderecoCaixa">
+                    <?php
+                    // Loop para percorrer os resultados da consulta
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $idEndereco = $row['id'];
+                        $cnpj = $row['cnpj'];
+                        $uf = $row['uf'];
+                        $rua = $row['rua'];
+                        $telefone = $row['telefone'];
+                        $email = $row['email'];
+                    ?>
+                        <div class="listarEnderecoCaixas">
+                            <div class="listarEnderecoDesc">
+                                <h3><?php echo $rua; ?>, <?php echo $uf; ?></h3>
+                                <p><?php echo $cnpj; ?></p>
+                                <p><?php echo $telefone; ?>, <?php echo $email; ?></p>
+                                
+                            </div>
+                            <div class="listarEnderecoBotoes">
+                                <form action="admEditarEndereco.php?idEndereco=<?php echo $idEndereco; ?>" method="get">
+
+                                    <input type="hidden" name="idEndereco" value="<?php echo $idEndereco; ?>">
+                                    <input class="listarEnderecoEditar" name="EditarEndereco" type="submit" value="EDITAR">
+                                </form>
+
+
+                                <form action="enderecos/excluirEndereco.php?idEndereco=<?php echo $idEndereco; ?>" method="get">
+
+                                    <input type="hidden" name="idEndereco" value="<?php echo $idEndereco; ?>">
+                                    <input class="listarEnderecoExcluir" name="ExcluirEndereco" type="submit" value="EXCLUIR">
+                                </form>
+
+                            </div>
+                        </div>
+                    <?php
+                    }
+
+
+                    ?>
+
+                </div>
 
             </div>
         </div>

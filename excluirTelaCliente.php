@@ -1,39 +1,18 @@
-
 <?php
 session_start();
-include_once('config/conexao.php');
 
-if (isset($_POST['finPag'])){
-    $id_cliente = $_SESSION['user_id'];
-    $numCartao = $_POST['numCartao'];
-    
-    $sqlPagamento = "UPDATE carrinho SET numero_cartao_credito = '$numCartao', situacao = 'Em Andamento' WHERE id_cliente = $id_cliente";
-    $resultPagamento = mysqli_query($conexao, $sqlPagamento);
 
-    $sqlPedido = "UPDATE pedido SET situacao = 'feito' WHERE id_cliente = $id_cliente";
-    $resultPedido = mysqli_query($conexao, $sqlPedido);
-
-    
-
-    if($resultPagamento && $resultPedido){
-        header("Location: pedidoConcluido.php");
-    }
-    
-}
 ?>
 
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css"> <!-- Adicione seu CSS para estilização aqui -->
-    <title>Seu Carrinho</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>CoffeWay - Cadastrar Endereco</title>
 </head>
 
 <body>
@@ -63,33 +42,18 @@ if (isset($_POST['finPag'])){
                 </nav>
             </div>
     </header>
-    <section class="carrinho areaEstilizada">
-        <div class="carrinhoArea">
 
-            <div class="pagamentoCaixa">
-                <h4>Cartão de Crédito</h4>
-
-                <form class="formPagamento" action="" method="post">
-                    <label class="labelPag" for="numCartao" required>Número</label>
-                    <input class="inputPag" type="number" name="numCartao">
-
-                    <label class="labelPag" for="nomeCartao" required>Nome do Titular</label>
-                    <input class="inputPag" type="text" name="nomeCartao">
-
-                    <input type="submit" class="finPag" name="finPag" value="FINALIZAR">
-
-                </form>
-                <a  href="carrinho.php">voltar</a>
+    <section class="areaEstilizada">
+        <div class="excluirArea">
+            <div class="excluir">
+            <h4>Excluido com Sucesso</h4>
             </div>
-
             
-                
+        </div>
+        
     </section>
-    <footer>
-        <!-- Inclua seu rodapé aqui, se necessário -->
-    </footer>
 
-   
+
 </body>
 
 </html>

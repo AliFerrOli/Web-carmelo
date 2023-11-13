@@ -14,6 +14,8 @@ header{
     justify-content: center;
     padding-top: 10px;
     padding-bottom: 5px;
+    background-color: #fff;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 header .logo{
@@ -629,7 +631,7 @@ footer{
 
 /*Selecionar bebida ou comida*/
 .areaEstilizada{
-    background-image: linear-gradient(180deg, #220404 -4.74%, #F4EDE7 2.29%, rgba(244, 237, 231, 0) 100%);
+    background-image: linear-gradient(180deg, #F4EDE7 2.29%, rgba(244, 237, 231, 0) 100%);
 }
 
 .selCardapioArea{
@@ -830,4 +832,223 @@ footer{
 
 
 
+.pagamentoCaixa{
+    margin-top: 50px;
+    padding: 42px;
+    background-color: white;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
+.pagamentoCaixa h4{
+    color: #471414;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.formPagamento{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.labelPag{
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+
+}
+
+.formPagamento .inputPag{
+    width: 257px;
+    height: 31px;
+    border-radius: 20px;
+    border: 1px solid #7E6E6E;
+    background: #FFF;
+}
+
+.finPag{
+    margin-top: 27px;
+    width: 257px;
+    height: 48px;
+    border: none;
+    border-radius: 20px;
+    background: #73B09E;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.finPag:hover{
+    background-color: #3A4E48;
+    transition: 0.5s;
+}
+
+.pagamentoCaixa a{
+    margin-top: 17px;
+    color: #7E6E6E;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pedSucessooArea{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    width: 50%;
+    gap: 50px;
+}
+
+.pedSucessoCaixa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 2px #73B09E;
+    color: #73B09E;
+    font-size: 21px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+
+/*Perfil cliente*/
+.clienteCaixa{
+    margin-top: 50px;
+    padding: 42px;
+    background-color: white;
+    width: 549px;
+    height: 328px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.clienteCaixaTopo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clienteCaixaTopo .deletConta{
+    background: none;
+    border: none;
+    color: #A54657; /* Cor do texto */
+    text-decoration: underline; /* Adicione sublinhado ao texto (opcional) */
+    cursor: pointer;
+}
+
+.clienteCaixaTopo h3{
+    color: #471414;
+    font-size: 22px;
+    font-weight: 500;
+
+}
+
+.clienteInfoArea{
+    margin-top: 28px;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-wrap: wrap
+
+}
+
+.clienteInfo{
+    width: 50%;
+}
+
+.clienteBotoesArea{
+    padding-top: 30px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+
+.clienteBotaoEditar:hover{
+    cursor: pointer;
+}
+
+.clienteBotaoLogout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 218px;
+    height: 46px;
+    border-radius: 30px;
+    background: #A54657;
+    color: #FFF;
+    font-family: Jost;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+
+.excluirArea{
+    width: 100%;
+    padding-top: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.excluir{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 2px #A54657;
+}
+
+
+.concluirEnderecoArea{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    width: 50%;
+    gap: 50px;
+}
+
+.concluirEndereco{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 2px #73B09E;
+    color: #73B09E;
+    font-size: 21px;
+    font-weight: 500;
+    text-transform: uppercase;
+}

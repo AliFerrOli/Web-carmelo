@@ -18,26 +18,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
 
             if ($checkCartResult !== false) {
                 if (mysqli_num_rows($checkCartResult) > 0) {
-                    // Se o carrinho já existe, atualize o valor total no carrinho
-                    $totalValueQuery = "SELECT SUM(valor_total) AS total FROM pedido WHERE id_cliente = $id_cliente";
-                    $totalValueResult = mysqli_query($conexao, $totalValueQuery);
+                    $cartRow = mysqli_fetch_assoc($checkCartResult);
 
-                    if ($totalValueResult !== false) {
-                        $totalRow = mysqli_fetch_assoc($totalValueResult);
-                        $totalValue = $totalRow['total'];
+                    if ($cartRow['situacao'] === 'Aguardando') {
+                        // Se o carrinho já existe e está 'Aguardando', atualize o valor total no carrinho
+                        $totalValueQuery = "SELECT SUM(valor_total) AS total FROM pedido WHERE id_cliente = $id_cliente AND situacao = 'aguardando'";
+                        $totalValueResult = mysqli_query($conexao, $totalValueQuery);
 
-                        $updateCartQuery = "UPDATE carrinho SET valor_total = $totalValue WHERE id_cliente = $id_cliente";
-                        $updateCartResult = mysqli_query($conexao, $updateCartQuery);
+                        if ($totalValueResult !== false) {
+                            $totalRow = mysqli_fetch_assoc($totalValueResult);
+                            $totalValue = $totalRow['total'];
 
-                        if (!$updateCartResult) {
+                            $updateCartQuery = "UPDATE carrinho SET valor_total = $totalValue WHERE id_cliente = $id_cliente";
+                            $updateCartResult = mysqli_query($conexao, $updateCartQuery);
+
+                            if (!$updateCartResult) {
+                                mysqli_rollback($conexao); // Desfaz a transação em caso de erro
+                                echo "Erro ao atualizar o carrinho: " . mysqli_error($conexao);
+                                exit;
+                            }
+                        } else {
                             mysqli_rollback($conexao); // Desfaz a transação em caso de erro
-                            echo "Erro ao atualizar o carrinho: " . mysqli_error($conexao);
+                            echo "Erro ao calcular o valor total: " . mysqli_error($conexao);
                             exit;
                         }
                     } else {
-                        mysqli_rollback($conexao); // Desfaz a transação em caso de erro
-                        echo "Erro ao calcular o valor total: " . mysqli_error($conexao);
-                        exit;
+                        // Se o carrinho já existe, mas está 'Em Andamento', crie um novo registro no Carrinho
+                        $insertCartQuery = "INSERT INTO carrinho (id_cliente, data_pedido, valor_total, situacao) 
+                        VALUES ($id_cliente, NOW(), $nomePreco, 'Aguardando')";
+                        $insertCartResult = mysqli_query($conexao, $insertCartQuery);
+
+                        if (!$insertCartResult) {
+                            mysqli_rollback($conexao); // Desfaz a transação em caso de erro
+                            echo "Erro ao criar o carrinho: " . mysqli_error($conexao);
+                            exit;
+                        }
                     }
                 } else {
                     // Se o carrinho não existe, insira um novo registro no Carrinho
@@ -58,7 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
             }
 
             // Verificar se já existe um registro no carrinho para esse produto
-            $checkProductQuery = "SELECT * FROM pedido WHERE id_cliente = $id_cliente AND id_produto = $id_produto FOR UPDATE";
+            $checkProductQuery = "SELECT * FROM pedido WHERE id_cliente = $id_cliente AND id_produto = $id_produto AND situacao = 'aguardando' FOR UPDATE";
+
             $checkProductResult = mysqli_query($conexao, $checkProductQuery);
 
             if ($checkProductResult !== false) {
@@ -67,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
                     // Se o produto já existe no carrinho, atualize a quantidade no Carrinho
                     $id_pedidoAtualizar = $row['id'];
 
-                    $quantidadeSql = "SELECT quantidade_total, valor_total FROM pedido WHERE id_produto = $id_produto";
+                    $quantidadeSql = "SELECT quantidade_total, valor_total FROM pedido WHERE id_produto = $id_produto AND id_cliente = $id_cliente AND situacao = 'aguardando'";
                     $quantidadeResult = mysqli_query($conexao, $quantidadeSql);
                     $row = mysqli_fetch_assoc($quantidadeResult);
                     $quantidade = $row['quantidade_total'];
@@ -78,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
                     $updateQuery = "UPDATE pedido SET quantidade_total = $newQuantidade, valor_total = $newValor WHERE id = $id_pedidoAtualizar";
                     $updateResult = mysqli_query($conexao, $updateQuery);
 
-                    $totalValueQuery = "SELECT SUM(valor_total) AS total FROM pedido WHERE id_cliente = $id_cliente";
+                    $totalValueQuery = "SELECT SUM(valor_total) AS total FROM pedido WHERE id_cliente = $id_cliente AND situacao = 'aguardando'";
                     $totalValueResult = mysqli_query($conexao, $totalValueQuery);
 
                     if ($totalValueResult !== false) {
@@ -102,12 +118,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
                     }
                 } else {
                     // Se o produto não existe no carrinho, insira um novo registro no Carrinho
-                    $insertQueryPedido = "INSERT INTO pedido (id_cliente, id_produto, quantidade_total, nome_produto, valor_total, data) 
-                    VALUES ($id_cliente, $id_produto, 1, '$nomeProduto', $nomePreco, NOW())";
+                    $insertQueryPedido = "INSERT INTO pedido (id_cliente, id_produto, quantidade_total, nome_produto, valor_total, data, situacao) 
+                    VALUES ($id_cliente, $id_produto, 1, '$nomeProduto', $nomePreco, NOW(), 'aguardando')";
                     $insertResultPedido = mysqli_query($conexao, $insertQueryPedido);
 
                     if ($insertResultPedido) {
-                        $totalValueQuery = "SELECT SUM(valor_total) AS total FROM pedido WHERE id_cliente = $id_cliente";
+                        $totalValueQuery = "SELECT SUM(valor_total) AS total FROM pedido WHERE id_cliente = $id_cliente AND situacao = 'aguardando'";
                         $totalValueResult = mysqli_query($conexao, $totalValueQuery);
 
                         if ($totalValueResult !== false) {

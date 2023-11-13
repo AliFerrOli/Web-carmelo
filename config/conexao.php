@@ -5,6 +5,7 @@
     $nomebanco = "projetotcc";
 
     $conexao = mysqli_connect($servidor, $usuario, $senha, $nomebanco);
+    mysqli_set_charset($conexao, "utf8mb4");
     
 
     /* if(!$conexao){

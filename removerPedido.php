@@ -7,10 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $produto_id = $_POST['produto_id'];
         $id_cliente = $_SESSION['user_id'];
         $quantCarrinho = $_POST['quantCarrinho'];
-        echo $quantCarrinho;
-        echo $produto_id;
-        echo $id_cliente;
-
 
         // Verifique se o pedido existe antes de excluí-lo para evitar erros
         $sqlVerificarPedido = "SELECT id FROM pedido WHERE id_cliente = $id_cliente AND id_produto = $produto_id";
@@ -32,8 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sqlAtualizarValor = "UPDATE carrinho SET valor_total = $valorNovo WHERE id_cliente = $id_cliente";
             $resultAtualizarValor = mysqli_query($conexao, $sqlAtualizarValor);
 
-
-
             if ($resultRemoverPedido && $resultAtualizarValor) {
                 // Pedido removido com sucesso, redirecione para a página do carrinho
                 header("Location: carrinho.php");
@@ -42,6 +36,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else {
             echo "Pedido não encontrado ou não pertence ao usuário.";
+        }
+
+        // Verificar se não há mais pedidos no carrinho
+        $sqlVerificarCarrinhoVazio = "SELECT id FROM pedido WHERE id_cliente = $id_cliente";
+        $resultVerificarCarrinhoVazio = mysqli_query($conexao, $sqlVerificarCarrinhoVazio);
+
+        if (mysqli_num_rows($resultVerificarCarrinhoVazio) == 0) {
+            // Não há mais pedidos no carrinho, então exclua o carrinho
+            $sqlExcluirCarrinho = "DELETE FROM carrinho WHERE id_cliente = $id_cliente";
+            $resultExcluirCarrinho = mysqli_query($conexao, $sqlExcluirCarrinho);
+
+            if ($resultExcluirCarrinho) {
+                // Carrinho excluído com sucesso
+            } else {
+                echo "Erro ao excluir o carrinho.";
+            }
         }
     } else {
         echo "ID do produto não especificado.";

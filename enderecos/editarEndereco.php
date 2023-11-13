@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultEndereco = mysqli_query($conexao, $sqlEndereco);
     if ($resultEndereco) {
         // Redirecionar para a tela de sucesso após a exclusão
-        header('Location: ../excluir.php');
+        header('Location: ../concluirEndereco.php');
         exit();
     } else {
         echo "<h2>Erro ao excluir o Endereco.<h2>";

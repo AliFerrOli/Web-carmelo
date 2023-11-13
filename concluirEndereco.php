@@ -1,9 +1,6 @@
 <?php
 session_start();
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,7 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styleAdm.css">
-    <title>CoffeWay - Cadastrar Produto</title>
+    <title>CoffeWay - Selecionar Cardápio</title>
 </head>
 
 <body>
@@ -25,9 +22,9 @@ session_start();
                 <nav>
                     <ul>
                         <li><a href="dashboard.php">DASHBOARD</a></li>
-                        <li><a href="admPedidos.php">PEDIDOS</a></li>
+                        <li><a href="#sobreNos">PEDIDOS</a></li>
                         <li>
-                            <a href="adm.php">
+                            <a href="cliente.php">
                                 <div class="admLogado"><?php echo $_SESSION['user_name']; ?><strong>ADM</strong></div>
                             </a>
                         </li>
@@ -39,20 +36,12 @@ session_start();
     </header>
 
     <section class="areaEstilizada">
-        <div class="menuAdmArea">
-            <p class="titulo">Dashboard</p>
-        
-
-            <div class="menuAdm">
-                
-
-                <a href="admProdutos.php"><div class="menuAdmCaixa">ProdutoS</div></a>
-                <a href="admClientes.php"><div class="menuAdmCaixa">CLIENTES</div></a>
-                <a href="admAdministradores.php"><div class="menuAdmCaixa">ADMINISTRADORES</div></a>
-                <a href="listarEndereco.php"><div class="menuAdmCaixa">ENDERECO</div></a>
+        <div class="concluirEnderecoArea">
+            <div class="concluirEndereco">
+            ENDEREÇO ALTERADO
             </div>
+
         </div>
-        
     </section>
 
 
