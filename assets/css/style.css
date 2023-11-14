@@ -983,7 +983,19 @@ footer{
 
 }
 
-
+.clienteBotaoEditar{
+    
+    width: 218px;
+    height: 46px;
+    border-radius: 30px;
+    border: 3px solid #73B09E;
+    background: #FFF;
+    color: #3A4E48;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
 
 .clienteBotaoEditar:hover{
     cursor: pointer;

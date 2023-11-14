@@ -1,16 +1,21 @@
 <?php
-    include_once('config/conexao.php');
+include_once('config/conexao.php');
 
+if(isset($_POST['submit']))
+{
+    $nome = ($_POST['nome']);
+    $email = ($_POST['email']);
+    $cpf = ($_POST['cpf']);
+    $telefone = ($_POST['tel']);
+    $Endereco = ($_POST['Endereco']);
+    $senha = ($_POST['senha']);
+    $confirmarSenha = ($_POST['confirmar_senha']);  // Campo de confirmação de senha
 
-    if(isset($_POST['submit']))
-    {
-        $nome = ($_POST['nome']);
-        $email =($_POST['email']);
-        $cpf = ($_POST['cpf']);
-        $telefone = ($_POST['tel']);
-        $Endereco = ($_POST['Endereco']);
-        $senha = ($_POST['senha']);
-
+    if (isset($confirmarSenha) && $senha !== $confirmarSenha) {
+        // Senha e confirmação de senha não coincidem, exiba uma mensagem de erro
+        echo '<script type="text/javascript">alert("As senhas não coincidem.");</script>';
+    } else {
+        // As senhas coincidem, continue com a inserção no banco de dados
         $sql_cliente = "INSERT INTO cliente(nome_completo, cpf, endereco, telefone) 
         VALUES ('$nome', '$cpf', '$Endereco', '$telefone')";
 
@@ -19,16 +24,17 @@
         if ($result_cliente) {
             // Obtém o ID do cliente recém-cadastrado
             $id_cliente = mysqli_insert_id($conexao);
-    
+
             // Insere o novo login associado ao ID do cliente
             $sql_login = "INSERT INTO login(id_cliente, email, senha) 
                           VALUES ('$id_cliente', '$email', '$senha')";
-    
+
             $result_login = mysqli_query($conexao, $sql_login);
-    
+
             if ($result_login) {
                 // Inserções bem-sucedidas
-                header('Location: index.php');
+                header('Location: login.php');
+                exit;  // Importante: encerre o script após o redirecionamento
             } else {
                 // Erro ao inserir dados
                 echo "Erro ao cadastrar os dados de login.";
@@ -37,26 +43,11 @@
             // Erro ao inserir dados
             echo "Erro ao cadastrar os dados de cliente.";
         }
-
-       /*  $sql_login = "INSERT INTO login(email, senha) 
-        VALUES ('$email', '$senha')";
-
-        $result_login = mysqli_query($conexao, $sql_login);
-        echo mysqli_insert_id($conexao);
-
-        if ($result_cliente && $result_login) {
-            // Inserções bem-sucedidas
-            echo "Dados cadastrados com sucesso.";
-        } else {
-            // Erro ao inserir dados
-            echo "Erro ao cadastrar os dados.";
-        } */
-    };
-
-    
-
-    
+    }
+}
 ?>
+
+
 
 
 
@@ -102,7 +93,7 @@
                 <label>Senha</label>
             </div>
             <div class="box-user esquerda">
-                <input type="password" name="" required>
+                <input type="password" name="confirmar_senha" required>
                 <label>Confirmar senha</label>
             </div>
         </div>

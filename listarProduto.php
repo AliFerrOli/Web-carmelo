@@ -29,10 +29,10 @@ $result = mysqli_query($conexao, $sql);
             <div class="menu">
                 <nav>
                     <ul>
-                        <li><a href="index.php">DASHBOARD</a></li>
-                        <li><a href="#sobreNos">PEDIDOS</a></li>
+                        <li><a href="dashboard.php">DASHBOARD</a></li>
+                        <li><a href="admPedidos.php">PEDIDOS</a></li>
                         <li>
-                            <a href="cliente.php">
+                            <a href="adm.php">
                                 <div class="admLogado"><?php echo $_SESSION['user_name']; ?><strong>ADM</strong></div>
                             </a>
                         </li>

@@ -25,9 +25,9 @@ session_start();
                 <nav>
                     <ul>
                         <li><a href="dashboard.php">DASHBOARD</a></li>
-                        <li><a href="#sobreNos">PEDIDOS</a></li>
+                        <li><a href="admPedidos.php">PEDIDOS</a></li>
                         <li>
-                            <a href="cliente.php">
+                            <a href="adm.php">
                                 <div class="admLogado"><?php echo $_SESSION['user_name']; ?><strong>ADM</strong></div>
                             </a>
                         </li>

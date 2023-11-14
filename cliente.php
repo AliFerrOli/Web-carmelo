@@ -32,12 +32,18 @@ $telefone = $row['telefone'];
 
 
 if (isset($_GET['DeletConta'])) {
+  $sqlDeletPedido = $sqlCliente = "DELETE FROM pedido WHERE id_cliente = $id_cliente";
+  $resultDeletPedido = mysqli_query($conexao, $sqlDeletPedido);
+
+  $sqlDeletCarrinho = $sqlCliente = "DELETE FROM carrinho WHERE id_cliente = $id_cliente";
+  $resultDeletCarrinho = mysqli_query($conexao, $sqlDeletCarrinho);
 
   // Consulta SQL para excluir o Endereco com base no ID
   $sqlCliente = "DELETE FROM cliente WHERE id = $id_cliente";
   $sqlLogin = "DELETE FROM login WHERE id_cliente = $id_cliente";
   $resultLogin = mysqli_query($conexao, $sqlLogin);
   $resultCliente = mysqli_query($conexao, $sqlCliente);
+
   
 
   if ($resultCliente && $resultLogin) {

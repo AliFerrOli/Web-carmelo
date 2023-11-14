@@ -35,7 +35,7 @@ if ($result) {
 </head>
 
 <body>
-    <header>
+<header>
         <div class="container header">
             <div class="logo">
                 <a href=""><img class="logo" src="assets/images/logo.png" /></a>
@@ -44,9 +44,9 @@ if ($result) {
                 <nav>
                     <ul>
                         <li><a href="dashboard.php">DASHBOARD</a></li>
-                        <li><a href="#sobreNos">PEDIDOS</a></li>
+                        <li><a href="admPedidos.php">PEDIDOS</a></li>
                         <li>
-                            <a href="cliente.php">
+                            <a href="adm.php">
                                 <div class="admLogado"><?php echo $_SESSION['user_name']; ?><strong>ADM</strong></div>
                             </a>
                         </li>

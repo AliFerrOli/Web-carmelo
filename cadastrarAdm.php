@@ -12,7 +12,6 @@ if (isset($_POST['submit'])) {
     $telefone = ($_POST['tel']);
     $Endereco = ($_POST['Endereco']);
     $senha = ($_POST['senha']);
-    $loja_id = ($_POST['loja_id']);
 
     $sql_cliente = "INSERT INTO adm(nome_completo, cpf, endereco, telefone, loja_id) 
         VALUES ('$nome', '$cpf', '$Endereco', '$telefone', 1)";
@@ -31,7 +30,8 @@ if (isset($_POST['submit'])) {
 
         if ($result_login) {
             // Inserções bem-sucedidas
-            echo "Dados cadastrados com sucesso.";
+            echo '<script type="text/javascript">alert("Cadastrado com sucesso.");</script>';
+            echo '<script type="text/javascript">window.location = "admAdministradores.php";</script>';
         } else {
             // Erro ao inserir dados
             echo "Erro ao cadastrar os dados de login.";

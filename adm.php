@@ -20,13 +20,13 @@ $telefone = $row['telefone'];
 if (isset($_GET['DeletConta'])) {
 
   // Consulta SQL para excluir o Endereco com base no ID
-  $sqlAdm = "DELETE FROM cliente WHERE id = $id_adm";
+  $sqlAdm = "DELETE FROM adm WHERE id = $id_adm";
   $sqlLogin = "DELETE FROM login WHERE id_adm = $id_adm";
   $resultLogin = mysqli_query($conexao, $sqlLogin);
-  $resultCliente = mysqli_query($conexao, $sqlCliente);
+  $resultAdm = mysqli_query($conexao, $sqlAdm);
   
 
-  if ($resultCliente && $resultLogin) {
+  if ($resultAdm && $resultLogin) {
       // Destruir todas as variáveis de sessão
       session_unset();
 

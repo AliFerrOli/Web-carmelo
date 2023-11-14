@@ -2,12 +2,8 @@
 session_start();
 include_once('config/conexao.php');
 
+$tipo = 'bebida'; // Adicione esta linha para definir o valor de $tipo
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +17,7 @@ include_once('config/conexao.php');
 </head>
 
 <body>
-<header>
+    <header>
         <div class="container header">
             <div class="logo">
                 <a href=""><img class="logo" src="assets/images/logo.png" /></a>
@@ -54,7 +50,7 @@ include_once('config/conexao.php');
             <h3>Cardápio</h3>
 
             <?php
-            $sqlCarrinho = "SELECT * FROM produto WHERE tipo = 'bebida'";
+            $sqlCarrinho = "SELECT * FROM produto WHERE tipo = '$tipo'";
             mysqli_set_charset($conexao, "utf8");
             $select_products = mysqli_query($conexao, $sqlCarrinho);
 
@@ -77,18 +73,17 @@ include_once('config/conexao.php');
                     <input type="hidden" name="nomeProduto" value="<?php echo $fecth_product['nome']; ?>">
                     <input type="hidden" name="nomePreco" value="<?php echo $fecth_product['preco']; ?>">
                     <input type="hidden" name="nomeimagem" value="<?php echo $fecth_product['imagem_url']; ?>">
+                    <input type="hidden" name="tipo" value="<?php echo $tipo; ?>">
+                    
                     <input type="submit" class="add-to-cart" name="add-to-cart" value="Adicionar ao Carrinho">
                 </form>
             <?php
             }
             ?>
-
-
-
         </div>
     </section>
 
-
+    <!-- ... (seu código posterior) ... -->
 </body>
 
 </html>

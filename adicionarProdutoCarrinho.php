@@ -3,6 +3,7 @@ session_start();
 include_once('config/conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
+    $tipo = isset($_POST['tipo']);
     if (isset($_POST['id_produto'])) {
         if (isset($_SESSION['user_type'])) { // Verifica se o usuário está logado
             $id_produto = $_POST['id_produto'];
@@ -106,8 +107,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
                         $updateCartResult = mysqli_query($conexao, $updateCartQuery);
 
                         if ($updateCartResult) {
-                            mysqli_commit($conexao); // Confirma a transação
-                            echo "Produto adicionado ao carrinho com sucesso.";
+                            mysqli_commit($conexao); 
+                            $tipo = $_POST['tipo'];
+
+                            if ($tipo == 'bebida'){
+                                echo '<script type="text/javascript">alert("Adicionado com sucesso.");</script>';
+                                echo '<script type="text/javascript">window.location = "cardapioBebida.php";</script>';
+                            } elseif ($tipo == 'comida'){
+                                echo '<script type="text/javascript">alert("Adicionado com sucesso.");</script>';
+                                echo '<script type="text/javascript">window.location = "cardapioComida.php";</script>';
+                            }
+                            
+                            // Confirma a transação
+                            
                         } else {
                             mysqli_rollback($conexao); // Desfaz a transação em caso de erro
                             echo "Erro ao atualizar o carrinho: " . mysqli_error($conexao);
@@ -136,7 +148,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
 
                             if ($updateCartResult) {
                                 mysqli_commit($conexao); // Confirma a transação
-                                echo "Produto adicionado ao carrinho com sucesso.";
+                                if ($tipo == 'bebida'){
+                                    echo '<script type="text/javascript">alert("Adicionado com sucesso.");</script>';
+                                    echo '<script type="text/javascript">window.location = "cardapioBebida.php";</script>';
+                                } elseif ($tipo == 'comida'){
+                                    echo '<script type="text/javascript">alert("Adicionado com sucesso.");</script>';
+                                    echo '<script type="text/javascript">window.location = "cardapioComida.php";</script>';
+                                }
+                                
                             } else {
                                 mysqli_rollback($conexao); // Desfaz a transação em caso de erro
                                 echo "Erro ao atualizar o carrinho: " . mysqli_error($conexao);

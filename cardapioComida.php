@@ -77,6 +77,7 @@ include_once('config/conexao.php');
                     <input type="hidden" name="nomeProduto" value="<?php echo $fecth_product['nome']; ?>">
                     <input type="hidden" name="nomePreco" value="<?php echo $fecth_product['preco']; ?>">
                     <input type="hidden" name="nomeimagem" value="<?php echo $fecth_product['imagem_url']; ?>">
+                    <input type="hidden" name="tipo" value="comida">
                     <input type="submit" class="add-to-cart" name="add-to-cart" value="Adicionar ao Carrinho">
                 </form>
             <?php

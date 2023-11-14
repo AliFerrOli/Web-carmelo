@@ -9,8 +9,7 @@ $sqlListarAdm = "SELECT adm.id, adm.nome_completo, adm.cpf, adm.endereco, adm.te
                 INNER JOIN loja ON adm.loja_id = loja.id";
 $resultListarAdm = mysqli_query($conexao, $sqlListarAdm);
 
-$sqlEmailAdm= "SELECT email FROM login";
-$resultListarEmailAdm = mysqli_query($conexao, $sqlEmailAdm);
+
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +32,10 @@ $resultListarEmailAdm = mysqli_query($conexao, $sqlEmailAdm);
             <div class="menu">
                 <nav>
                     <ul>
-                        <li><a href="index.php">DASHBOARD</a></li>
-                        <li><a href="#sobreNos">PEDIDOS</a></li>
+                        <li><a href="dashboard.php">DASHBOARD</a></li>
+                        <li><a href="admPedidos.php">PEDIDOS</a></li>
                         <li>
-                            <a href="cliente.php">
+                            <a href="adm.php">
                                 <div class="admLogado"><?php echo $_SESSION['user_name']; ?><strong>ADM</strong></div>
                             </a>
                         </li>
@@ -66,17 +65,21 @@ $resultListarEmailAdm = mysqli_query($conexao, $sqlEmailAdm);
 
                 <div class="listarEnderecoCaixa">
                     <?php
-
-                    $emailRow = mysqli_fetch_assoc($resultListarEmailAdm);
-                    $email = $emailRow['email'];
+                    
+                    
                     // Loop para percorrer os resultados da consulta
                     while ($row = mysqli_fetch_assoc($resultListarAdm)) {
                         $id = $row['id'];
+                        
                         $nome_completo = $row['nome_completo'];
                         $cpf = $row['cpf'];
                         $endereco = $row['endereco'];
                         $telefone = $row['telefone'];
                         $loja = $row['rua'];
+                        $sqlEmailAdm = "SELECT email FROM login WHERE id_adm = $id";
+                        $resultEmailAdm = mysqli_query($conexao, $sqlEmailAdm);
+                        $emailRow = mysqli_fetch_assoc($resultEmailAdm);
+                        $email = $emailRow['email'];
                     ?>
                         <div class="listarEnderecoCaixas">
                             <div class="listarEnderecoDesc">
@@ -89,17 +92,17 @@ $resultListarEmailAdm = mysqli_query($conexao, $sqlEmailAdm);
 
                             </div>
                             <div class="listarEnderecoBotoes">
-                                <form action="admEditarCliente.php?id=<?php echo $id; ?>" method="get">
+                                <form action="admEditarAdm.php?id=<?php echo $id; ?>" method="get">
 
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <input class="listarEnderecoEditar" name="EditarEndereco" type="submit" value="EDITAR">
                                 </form>
 
 
-                                <form action="excluirCliente.php?id=<?php echo $id; ?>" method="get">
+                                <form action="excluirAdm.php?id=<?php echo $id; ?>" method="get">
 
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                    <input class="listarEnderecoExcluir" name="ExcluirEndereco" type="submit" value="EXCLUIR">
+                                    <input class="listarEnderecoExcluir" name="delet" type="submit" value="EXCLUIR">
                                 </form>
 
                             </div>
