@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('config/conexao.php');
 ?>
 
 <!DOCTYPE html>
@@ -182,11 +183,22 @@ session_start();
       </a>
     </div>
   </section>
+<?php
 
+  $sqlLoja = "SELECT * FROM loja;";
+  $resultLoja = mysqli_query($conexao, $sqlLoja);
+  $rowLoja = mysqli_fetch_assoc($resultLoja);
+  
+  $uf = $rowLoja['uf'];
+  $rua = $rowLoja['rua'];
+  $telefone = $rowLoja['telefone'];
+  $email = $rowLoja['email'];
+
+?>
   <section class="visiteNos">
     <div class="visiteNosFundo">
       <h2>Visite-nos</h2>
-      <p>Avenida Imaginária, Rua 707</p>
+      <p><?php echo $rua .', '. $uf;?></p>
     </div>
   </section>
 
@@ -195,8 +207,8 @@ session_start();
       <h3>Contate-nos</h3>
       <div class="footerInformacoes">
         <div class="footerContatos">
-          <a href="">45 00000-0000</a>
-          <a href="">email@email.com</a>
+          <a href=""><?php echo $telefone;?></a>
+          <a href=""><?php echo $email;?></a>
           <a href="">@insta_insta</a>
           <a href="">Gerenciamento</a>
         </div>
