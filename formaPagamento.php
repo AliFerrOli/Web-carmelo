@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar'])) {
         echo "Valor atualizado com sucesso!";
     }
 
-    $sqlAltPagamento = "UPDATE carrinho SET tipo_pagamento = $formaPagamento WHERE id_cliente = $id_cliente";
+    $sqlAltPagamento = "UPDATE carrinho SET tipo_pagamento = '$formaPagamento' WHERE id_cliente = $id_cliente";
     $resultAltPagamento = mysqli_query($conexao, $sqlAltPagamento);  //atualiza a forma de pagamento
 
     if (!$resultAltPagamento) {
@@ -25,15 +25,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar'])) {
         echo "Pagamento atualizado com sucesso!";
     }
 
-    if ($formaPagamento = 1) {
+    if ($formaPagamento == 1) {
         header("Location: cartaoDeDebito.php");
+        exit(); // Certifique-se de sair após o redirecionamento
     }
 
-    if ($formaPagamento = 2) {
+    if ($formaPagamento == 2) {
         header("Location: cartaoDeCredito.php");
+        exit(); // Certifique-se de sair após o redirecionamento
     }
 
+    // Remova os echos abaixo se não forem necessários
     echo $totalPrice;
     echo $id_cliente;
     echo $formaPagamento;
 }
+?>

@@ -3,18 +3,18 @@ session_start();
 include_once('config/conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
-    $tipo = isset($_POST['tipo']);
     if (isset($_POST['id_produto'])) {
         if (isset($_SESSION['user_type'])) { // Verifica se o usuário está logado
             $id_produto = $_POST['id_produto'];
             $id_cliente = $_SESSION['user_id'];
             $nomeProduto = $_POST['nomeProduto'];
             $nomePreco = $_POST['nomePreco'];
+            $tipo = $_POST['tipo'];
 
             mysqli_autocommit($conexao, false); // Desativa o modo autocommit
 
             // Verificar se já existe um registro no carrinho para esse cliente
-            $checkCartQuery = "SELECT * FROM carrinho WHERE id_cliente = $id_cliente FOR UPDATE";
+            $checkCartQuery = "SELECT * FROM carrinho WHERE id_cliente = $id_cliente AND situacao = 'Aguardando' FOR UPDATE";
             $checkCartResult = mysqli_query($conexao, $checkCartQuery);
 
             if ($checkCartResult !== false) {
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
 
                             if (!$updateCartResult) {
                                 mysqli_rollback($conexao); // Desfaz a transação em caso de erro
-                                echo "Erro ao atualizar o carrinho: " . mysqli_error($conexao);
+                                echo "Erro ao atualizar o carrinhow: " . mysqli_error($conexao);
                                 exit;
                             }
                         } else {
@@ -118,11 +118,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
                                 echo '<script type="text/javascript">window.location = "cardapioComida.php";</script>';
                             }
                             
+
+                        
+                            
                             // Confirma a transação
                             
                         } else {
                             mysqli_rollback($conexao); // Desfaz a transação em caso de erro
-                            echo "Erro ao atualizar o carrinho: " . mysqli_error($conexao);
+                            echo "Erro ao atualizar o carrinsho: " . mysqli_error($conexao);
                         }
                     } else {
                         mysqli_rollback($conexao); // Desfaz a transação em caso de erro
@@ -158,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-to-cart'])) {
                                 
                             } else {
                                 mysqli_rollback($conexao); // Desfaz a transação em caso de erro
-                                echo "Erro ao atualizar o carrinho: " . mysqli_error($conexao);
+                                echo "Erro ao atualizar o carrinhoa: " . mysqli_error($conexao);
                             }
                         } else {
                             $insertQueryCarrinho = "INSERT INTO carrinho (id_cliente, data_pedido, valor_total, situacao) 

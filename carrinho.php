@@ -119,8 +119,6 @@ include_once('config/conexao.php');
                     <input type="hidden" name="id_Cliente" value="<?php echo $id_cliente ?>">
                     <input type="hidden" name="totalPrice" id="totalPriceInput" value="<?php echo $totalPrice; ?>">
 
-
-
                     <div>
                         <label for="formaPagamento">Escolha a forma de pagamento:</label>
                         <select name="formaPagamento" id="formaPagamento">

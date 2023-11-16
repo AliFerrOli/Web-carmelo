@@ -5,20 +5,21 @@ include_once('config/conexao.php');
 
 if (isset($_POST['finPag'])){
     $id_cliente = $_SESSION['user_id'];
-    $numCartao = $_POST['numCartao'];
+    $numCartaoDebito = $_POST['numCartao'];
     
-    $sqlPagamento = "UPDATE carrinho SET numero_cartao_debito = '$numCartao', situacao = 'Em Andamento' WHERE id_cliente = $id_cliente";
-    $resultPagamento = mysqli_query($conexao, $sqlPagamento);
+    $sqlPagamentoDebito = "UPDATE carrinho SET numero_cartao_credito = '$numCartaoDebito', situacao = 'Em Andamento' WHERE id_cliente = $id_cliente";
+    $resultPagamentoDebito = mysqli_query($conexao, $sqlPagamentoDebito);
 
-    $sqlPedido = "UPDATE pedido SET situacao = 'feito' WHERE id_cliente = $id_cliente";
-    $resultPedido = mysqli_query($conexao, $sqlPedido);
+    $sqlPedidoDebito = "UPDATE pedido SET situacao = 'feito' WHERE id_cliente = $id_cliente";
+    $resultPedidoDebito = mysqli_query($conexao, $sqlPedidoDebito);
 
     
 
-        if($resultPagamento && $resultPedido){
-            header("Location: pedidoConcluido.php");
-        }
+    if($resultPagamentoDebito && $resultPedidoDebito){
+        header("Location: pedidoConcluido.php");
     }
+    
+}
 ?>
 
 
@@ -36,7 +37,7 @@ if (isset($_POST['finPag'])){
 </head>
 
 <body>
-<header>
+    <header>
         <div class="container header">
             <div class="logo">
                 <a href=""><img class="logo" src="assets/images/logo.png" /></a>
@@ -66,7 +67,7 @@ if (isset($_POST['finPag'])){
         <div class="carrinhoArea">
 
             <div class="pagamentoCaixa">
-                <h4>Cartão de Débito</h4>
+                <h4>Cartão de Crédito</h4>
 
                 <form class="formPagamento" action="" method="post">
                     <label class="labelPag" for="numCartao" required>Número</label>
